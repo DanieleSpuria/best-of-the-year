@@ -9,6 +9,7 @@ import org.java.app.song.Song;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class MainController {
@@ -38,7 +39,7 @@ public class MainController {
 	}
 	
 	@GetMapping("/songs")
-	public String mongs(Model model) {
+	public String songs(Model model) {
 		
 		List <Song> songsList = getBestSongs();
 		
@@ -50,7 +51,34 @@ public class MainController {
 				
 		return "songs";
 	}
-	
+
+	@GetMapping("/movies/{id}")
+	public String movie(@PathVariable int id, Model model) {
+		
+		String titolo = "";
+		
+		for (Movie m : getBestMovies())
+			if (m.getId() == id)
+				titolo = m.getTitolo();
+		
+		model.addAttribute("titolo", titolo);
+		
+		return "title";
+	}
+
+	@GetMapping("/songs/{id}")
+	public String song(@PathVariable int id, Model model) {
+		
+		String titolo = "";
+		
+		for (Song s : getBestSongs())
+			if (s.getId() == id)
+				titolo = s.getTitolo();
+		
+		model.addAttribute("titolo", titolo);
+		
+		return "title";
+	}
 	private List<Movie> getBestMovies() {
 		
 		List<Movie> movies = new ArrayList<>();
