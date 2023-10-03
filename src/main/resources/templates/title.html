@@ -10,11 +10,20 @@
 	
 	<header th:insert="header :: header"></header>
 	
-	<main class="container d-flex align-items-center justify-content-center vh-100">
-	<h1>[[${titolo}]]</h1>
-	
-	<a href="/">Home</a>
+	<main >
 		
+		<div 
+			th:if="${movie != nulla}"
+			class="container d-flex align-items-center justify-content-center">
+			<h2 class="py-5">ID: [[${movie.id}]], TITLE: [[${movie.titolo}]]</h2>			
+		</div>
+
+		<div 
+			th:if="${song != null}"
+			class="container d-flex align-items-center justify-content-center">
+			<h2 class="py-5">ID: [[${song.id}]], TITLE: [[${song.titolo}]]</h2>		
+		</div>
+			
 	</main>
 	
 </body>

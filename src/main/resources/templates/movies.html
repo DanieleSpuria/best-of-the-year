@@ -10,11 +10,22 @@
 	
 	<header th:insert="header :: header"></header>
 	
-	<main class="container d-flex align-items-center justify-content-center vh-100">
-		<h1>Best Movies</h1>
-		<p>[[${moviesListString}]]</p>
+	<main class="container d-flex flex-wrap justify-content-center align-items-center text-center">
 		
-		<a href="/">Home</a>		
+		<h1 class="w-100 py-5">Best Movies</h1>
+		
+		<!-- <p>[[${moviesListString}]]</p> -->
+		
+		<ul class="border border-black border-bottom-0 rounded p-0">
+			<li 
+				th:each="movie : ${moviesList}" 
+				class="border-bottom border-dark py-2 px-5">
+					<a th:href="@{/movies/{movie.id} (movie.id = ${movie.id})}">
+						[[${movie.titolo}]]
+					</a>
+		    </li>
+		</ul>
+					
 	</main>
 	
 </body>

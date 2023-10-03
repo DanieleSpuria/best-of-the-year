@@ -37,7 +37,8 @@ public class MainController {
 				.map(Movie::toString)
 				.collect(Collectors.joining(", "));
 
-		model.addAttribute("moviesListString", moviesListString);
+		model.addAttribute("moviesListString",moviesListString);
+		model.addAttribute("moviesList",moviesList);
 				
 		return "movies";
 	}
@@ -54,6 +55,7 @@ public class MainController {
 				.collect(Collectors.joining(", "));
 
 		model.addAttribute("songsListString", songsListString);
+		model.addAttribute("songsList", songsList);
 				
 		return "songs";
 	}
@@ -62,14 +64,18 @@ public class MainController {
 	
 	@GetMapping("/movies/{id}")
 	public String movie(@PathVariable int id, Model model) {
-		
+			
 		String titolo = "";
+		Movie   movie = null;
 		
 		for (Movie m : getBestMovies())
-			if (m.getId() == id)
+			if (m.getId() == id) {
 				titolo = m.getTitolo();
+				movie = m;
+			}
 		
 		model.addAttribute("titolo", titolo);
+		model.addAttribute("movie", movie);
 		
 		return "title";
 	}
@@ -78,14 +84,18 @@ public class MainController {
 	
 	@GetMapping("/songs/{id}")
 	public String song(@PathVariable int id, Model model) {
-		
+			
 		String titolo = "";
+		Song     song = null;
 		
 		for (Song s : getBestSongs())
-			if (s.getId() == id)
+			if (s.getId() == id) {
 				titolo = s.getTitolo();
+				song = s;
+			}
 		
 		model.addAttribute("titolo", titolo);
+		model.addAttribute("song", song);
 		
 		return "title";
 	}

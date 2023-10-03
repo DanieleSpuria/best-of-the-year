@@ -10,11 +10,22 @@
 
 	<header th:insert="header :: header"></header>
 
-	<main class="container d-flex align-items-center justify-content-center vh-100">
-	<h1>Best Songs</h1>
-	<p>[[${songsListString}]]</p>
-	
-	<a href="/">Home</a>		
+	<main class="container d-flex flex-wrap justify-content-center align-items-center text-center">
+		
+		<h1 class="w-100 py-5">Best Songs</h1>
+		
+		<!-- <p>[[${songsListString}]]</p> -->
+		
+		<ul class="border border-black border-bottom-0 rounded p-0">
+			<li 
+				th:each="song : ${songsList}" 
+				class="border-bottom border-dark py-2 px-5">
+					<a th:href="@{/songs/{song.id} (song.id = ${song.id})}">
+						[[${song.titolo}]]
+					</a>
+		    </li>
+		</ul>
+					
 	</main>
 	
 </body>
