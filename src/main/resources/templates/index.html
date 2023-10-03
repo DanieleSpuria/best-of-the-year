@@ -10,9 +10,14 @@
 	
 	<header th:insert="header :: header"></header>
 	
-	<main class="container d-flex align-items-center justify-content-center">	
+	<main class="container d-flex flex-wrap align-items-start justify-content-center">	
 			
-		<h1 class="py-5">Best if the year by [[${name}]]</h1>
+		<h1 class="py-5 w-100 text-center m-0">Best if the year by [[${name}]]</h1>
+		
+		<img 
+			th:src="@{/img/gertrude.jpg}"
+			alt="Gertrude"
+			class="pb-5 w-50">
 		
 	</main>
 	
