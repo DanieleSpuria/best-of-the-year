@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>best spring</title>
+	<meta charset="UTF-8">
+	<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<title>best spring</title>
 </head>
 <body>
 	
-	<h1>Best if the year by [[${name}]]</h1>
+	<header th:insert="header :: header"></header>
 	
-	<a href="/movies">Best Movies</a>
-	<a href="/songs">Best Songs</a>
+	<main class="container d-flex align-items-center justify-content-center vh-100">		
+		<h1>Best if the year by [[${name}]]</h1>
+	</main>
 	
 </body>
 </html>

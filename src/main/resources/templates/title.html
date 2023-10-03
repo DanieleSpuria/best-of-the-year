@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<title>[[${titolo}]]</title>
 </head>
 <body>
+	
+	<header th:insert="header :: header"></header>
+	
+	<main class="container d-flex align-items-center justify-content-center vh-100">
 	<h1>[[${titolo}]]</h1>
+	
+	<a href="/">Home</a>
+		
+	</main>
+	
 </body>
 </html>

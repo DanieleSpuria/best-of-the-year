@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class MainController {
 	
+	
+	
 	@GetMapping("/")
 	public String index(Model model) {	
 		
@@ -23,6 +25,8 @@ public class MainController {
 		
 		return "index";
 	}
+	
+	
 	
 	@GetMapping("/movies")
 	public String movies(Model model) {
@@ -38,6 +42,8 @@ public class MainController {
 		return "movies";
 	}
 	
+	
+	
 	@GetMapping("/songs")
 	public String songs(Model model) {
 		
@@ -51,7 +57,9 @@ public class MainController {
 				
 		return "songs";
 	}
+	
 
+	
 	@GetMapping("/movies/{id}")
 	public String movie(@PathVariable int id, Model model) {
 		
@@ -65,7 +73,9 @@ public class MainController {
 		
 		return "title";
 	}
+	
 
+	
 	@GetMapping("/songs/{id}")
 	public String song(@PathVariable int id, Model model) {
 		
@@ -79,6 +89,9 @@ public class MainController {
 		
 		return "title";
 	}
+	
+	
+	
 	private List<Movie> getBestMovies() {
 		
 		List<Movie> movies = new ArrayList<>();
@@ -91,6 +104,8 @@ public class MainController {
 		
 		return movies;
 	}
+	
+	
 	
 	private List<Song> getBestSongs() {
 		
